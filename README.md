@@ -27,6 +27,19 @@ docker-compose build
 docker-compose up
 ```
 
+Once completed application will be served on http://localhost/login
+
+### Sample Usernames and Passwords
+
+- **Read-Only User**
+
+  - **Username**: `user`
+  - **Password**: `password`
+
+- **Admin User**
+  - **Username**: `admin`
+  - **Password**: `password`
+
 ## Technologies Used
 
 - **Frontend**: Angular 19.2.0
