@@ -1,0 +1,55 @@
+<div>
+  <nz-table #basicTable [nzData]="patients" [nzLoading]="isLoading">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Email</th>
+        <th>Phone</th>
+        <th>Date Of Birth</th>
+        <th *appHasPermission="'patient:delete'; &quot;patient:delete&quot;">
+          Actions
+        </th>
+      </tr>
+    </thead>
+    <tbody>
+      @for (data of basicTable.data; track data) {
+        <tr>
+          <td>{{ data.firstName }} {{ data.lastName }}</td>
+          <td>{{ data.email }}</td>
+          <td>{{ data.phoneNumber }}</td>
+          <td>
+            {{ data.dateOfBirth | date: "yyyy-MM-dd" }} ({{
+              calculateAge(data.dateOfBirth)
+            }}
+            years)
+          </td>
+          <td
+            class="actions"
+            *appHasPermission="'patient:delete'; &quot;patient:delete&quot;"
+          >
+            <button
+              *appHasPermission="'patient:update'"
+              nz-button
+              class="button"
+              nzShape="circle"
+              (click)="editPatient(data)"
+            >
+              <nz-icon nzType="edit" />
+            </button>
+            <nz-divider nzType="vertical" />
+            <button
+              *appHasPermission="'patient:delete'"
+              nz-button
+              class="button"
+              nzShape="circle"
+              (click)="deletePatient(data)"
+            >
+              <nz-icon nzType="delete" />
+            </button>
+          </td>
+        </tr>
+      }
+    </tbody>
+  </nz-table>
+  <modify-patient-modal [onCompleted]="onCompleted.bind(this)" />
+</div>

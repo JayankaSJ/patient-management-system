@@ -1,0 +1,63 @@
+# User-specific files
+.idea/
+.vs/
+.vscode/
+*.user
+*.userosscache
+*.suo
+*.userprefs
+
+# Build results
+[Dd]ebug/
+[Dd]ebugPublic/
+[Dd]ist/
+[Dd]eploy/
+[Dd]ebug-x64/
+[Dd]ebug-x86/
+[Dd]eploy-x64/
+[Dd]eploy-x86/
+bin/
+obj/
+
+# Windows Installer files
+*.cab
+*.msi
+*.msm
+*.msp
+
+# Windows Installer file output
+*.pdb
+*.exe
+*.dll
+*.app
+*.dmg
+
+# JetBrains Rider
+.idea/
+
+# ASP.NET Scaffolding
+Scaffolding/
+
+# User-specific files
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+
+# User-specific config files
+.vsconfig
+
+# Npm and Node.js related files
+node_modules/
+
+# TypeScript files
+*.tsbuildinfo
+
+# Visual Studio for Mac
+.vscode/
+
+# .NET Core
+.vscode/
+
+# Azure Functions
+local.settings.json

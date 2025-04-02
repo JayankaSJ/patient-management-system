@@ -1,0 +1,86 @@
+<form nz-form [formGroup]="validateForm" (ngSubmit)="submitForm($event)">
+  <nz-form-item>
+    <nz-form-label [nzSm]="6" [nzXs]="24" nzRequired nzFor="firstName"
+      >First name</nz-form-label
+    >
+    <nz-form-control
+      [nzSm]="14"
+      [nzXs]="24"
+      nzErrorTip="Please enter your first name!"
+    >
+      <input nz-input formControlName="firstName" id="firstName" />
+    </nz-form-control>
+  </nz-form-item>
+
+  <nz-form-item>
+    <nz-form-label [nzSm]="6" [nzXs]="24" nzRequired nzFor="lastName"
+      >Last name</nz-form-label
+    >
+    <nz-form-control
+      [nzSm]="14"
+      [nzXs]="24"
+      nzErrorTip="Please enter your last name!"
+    >
+      <input nz-input formControlName="lastName" id="lastName" />
+    </nz-form-control>
+  </nz-form-item>
+
+  <nz-form-item>
+    <nz-form-label [nzSm]="6" [nzXs]="24" nzRequired nzFor="email"
+      >E-mail</nz-form-label
+    >
+    <nz-form-control
+      [nzSm]="14"
+      [nzXs]="24"
+      nzErrorTip="The enter valid e-mail!"
+    >
+      <input nz-input formControlName="email" id="email" />
+    </nz-form-control>
+  </nz-form-item>
+
+  <nz-form-item>
+    <nz-form-label [nzSm]="6" [nzXs]="24" nzRequired nzFor="phoneNumber"
+      >Phone number</nz-form-label
+    >
+    <nz-form-control
+      [nzSm]="14"
+      [nzXs]="24"
+      nzErrorTip="Please enter a valid phone number!"
+    >
+      <input
+        nz-input
+        formControlName="phoneNumber"
+        id="phoneNumber"
+        placeholder="Enter phone number (e.g. +45 12 34 56 78)"
+      />
+    </nz-form-control>
+  </nz-form-item>
+
+  <nz-form-item>
+    <nz-form-label [nzSm]="6" [nzXs]="24" nzRequired nzFor="dateOfBirth"
+      >Date of Birth</nz-form-label
+    >
+    <nz-form-control
+      [nzSm]="16"
+      [nzXs]="24"
+      nzErrorTip="Please enter a valid date of birth!"
+    >
+      <nz-date-picker
+        formControlName="dateOfBirth"
+        id="dateOfBirth"
+        placeholder="Select your date of birth"
+        [nzDisabledDate]="disableFutureDates"
+      ></nz-date-picker>
+    </nz-form-control>
+  </nz-form-item>
+
+  <nz-form-item nz-row class="register-area">
+    <nz-form-control>
+      <div class="action-buttons">
+        <button nz-button nzType="primary" [nzLoading]="isLoading">
+          {{ isCreation ? "Create" : "Save" }}
+        </button>
+      </div>
+    </nz-form-control>
+  </nz-form-item>
+</form>

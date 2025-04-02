@@ -1,0 +1,17 @@
+.site-heade-content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  .site-header-title {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: white;
+  }
+
+  .logout-button {
+    cursor: pointer;
+    color: white;
+    font-size: large;
+  }
+}

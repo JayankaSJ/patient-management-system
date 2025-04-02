@@ -1,0 +1,15 @@
+<nz-modal
+  [(nzVisible)]="isVisible"
+  [nzTitle]="title"
+  (nzOnCancel)="hide()"
+  nzMaskClosable="false"
+  [nzFooter]="null"
+>
+  <ng-container *nzModalContent>
+    <modify-patient-form
+      [isCreation]="isCreation"
+      [patient]="patient"
+      [onCompleted]="onFormActionCompleted.bind(this)"
+    />
+  </ng-container>
+</nz-modal>

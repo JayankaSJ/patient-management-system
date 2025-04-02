@@ -1,0 +1,40 @@
+version: "3.8"
+
+services:
+  backend:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    environment:
+      - BUILD_CONFIGURATION=Release
+      - ASPNETCORE_ENVIRONMENT=Development
+      - DATABASE_CONNECTION_STRING=Server=database,1433;Database=Master;UID=sa;Password=Password123!;TrustServerCertificate=True;
+    ports:
+      - "8080:8080"
+    depends_on:
+      - database
+    networks:
+      - backend_network
+
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    ports:
+      - "80:80"
+    networks:
+      - backend_network
+
+  database:
+    image: mcr.microsoft.com/mssql/server:2019-latest
+    environment:
+      - ACCEPT_EULA=Y
+      - SA_PASSWORD=Password123!
+    ports:
+      - "1433:1433"
+    networks:
+      - backend_network
+
+networks:
+  backend_network:
+    driver: bridge

@@ -1,0 +1,21 @@
+<div class="home-container">
+  <div class="header">
+    <span>Welcome to the Patients List</span>
+
+    <div class="header-actions">
+      <button
+        *appHasPermission="'patient:create'"
+        nz-button
+        nzType="primary"
+        (click)="addPatient()"
+      >
+        <i nz-icon nzType="plus"></i> Create Patient
+      </button>
+    </div>
+  </div>
+  <nz-card class="home-card">
+    <patients-list />
+  </nz-card>
+
+  <modify-patient-modal [onCompleted]="onCompleted.bind(this)" />
+</div>
