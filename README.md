@@ -101,7 +101,7 @@ Once completed application will be served on http://localhost/login
 
 #### Backend Fails to Connect to Database
 
-**Issue**: The backend service cannot connect to the database because the database is not fully ready when the backend starts.
+**Issue**: The backend service cannot connect to the database because the database is not fully ready when the backend starts. To handle this, backend need to be manually started in docker environment.
 
 ## License
 
