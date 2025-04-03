@@ -7,7 +7,7 @@ import { Observable } from 'rxjs';
   providedIn: 'root',
 })
 export class PatientsService {
-  private endpoint = 'patients'; // Define the base endpoint for patients
+  private endpoint = 'patients';
 
   constructor(private apiService: ApiService) {}
 

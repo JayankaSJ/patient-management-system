@@ -1,9 +1,7 @@
 import { Component, inject, Input, OnDestroy, OnInit } from '@angular/core';
 import {
-  AbstractControl,
   NonNullableFormBuilder,
   ReactiveFormsModule,
-  ValidationErrors,
   Validators,
 } from '@angular/forms';
 import { Subject } from 'rxjs';
@@ -52,7 +50,7 @@ export class ModifyPatientFormComponent implements OnInit, OnDestroy {
 
   constructor(
     private patientService: PatientsService,
-    private toastr: ToastrService
+    private toastr: ToastrService,
   ) {}
 
   ngOnInit(): void {
@@ -88,19 +86,19 @@ export class ModifyPatientFormComponent implements OnInit, OnDestroy {
           .createPatient(payload)
           .pipe(first())
           .subscribe({
-            next: (response: unknown) => {
+            next: () => {
               this.validateForm.reset();
               this.onCompleted();
               this.toastr.success(
                 `New patient created successfully.`,
-                'Creation succeeded'
+                'Creation succeeded',
               );
             },
             error: (error: unknown) => {
               this.isLoading = false;
               this.toastr.error(
                 `New patient creation failed.`,
-                'Creation failed'
+                'Creation failed',
               );
             },
             complete: () => {
@@ -112,12 +110,12 @@ export class ModifyPatientFormComponent implements OnInit, OnDestroy {
           .updatePatient(this.patient?.id as number, payload)
           .pipe(first())
           .subscribe({
-            next: (response: unknown) => {
+            next: () => {
               this.validateForm.reset();
               this.onCompleted();
               this.toastr.success(
                 `Patient updated successfully.`,
-                'Update succeeded'
+                'Update succeeded',
               );
             },
             error: (error: unknown) => {
@@ -145,11 +143,8 @@ export class ModifyPatientFormComponent implements OnInit, OnDestroy {
   }
 
   disableFutureDates = (current: Date): boolean => {
-    // Get today's date with time reset to midnight
     const today = new Date();
-    today.setHours(0, 0, 0, 0); // Reset to midnight for comparison
-
-    // Disable future dates (current date is still selectable)
-    return current > today; // Disable future dates
+    today.setHours(0, 0, 0, 0);
+    return current > today;
   };
 }

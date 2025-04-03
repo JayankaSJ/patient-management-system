@@ -31,7 +31,7 @@ export class PatientsListComponent implements OnInit {
 
   constructor(
     private patientService: PatientsService,
-    private toastr: ToastrService
+    private toastr: ToastrService,
   ) {}
 
   ngOnInit(): void {
@@ -86,7 +86,7 @@ export class PatientsListComponent implements OnInit {
       month < dob.getMonth() ||
       (month === dob.getMonth() && day < dob.getDate())
     ) {
-      age--; // Subtract one year if the birthday hasn't occurred yet this year
+      age--;
     }
     return age;
   }
